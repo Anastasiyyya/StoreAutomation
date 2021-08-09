@@ -1,6 +1,6 @@
 package steps;
 
-import pageObjects.Account;
+import page_objects.Account;
 import pages.AuthorizationPage;
 import pages.CreateAccountPage;
 

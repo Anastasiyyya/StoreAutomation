@@ -1,7 +1,7 @@
 package pages;
 
-import pageElements.*;
-import pageObjects.Account;
+import page_elements.*;
+import page_objects.Account;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CreateAccountPage extends HeaderPage{

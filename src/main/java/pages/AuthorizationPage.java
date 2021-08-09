@@ -1,6 +1,6 @@
 package pages;
 
-import pageElements.Button;
+import page_elements.Button;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AuthorizationPage extends HeaderPage{

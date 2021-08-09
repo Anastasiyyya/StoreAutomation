@@ -7,12 +7,12 @@ import pages.BasePage;
 import pages.MyAccountPage;
 import steps.AuthorizationSteps;
 import steps.CreateAccountSteps;
-import testData.ITestConstants;
-import testData.IGenerateEmail;
+import test_data.ITestConstants;
+import test_data.Utils;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class BaseTest implements ITestConstants, IGenerateEmail {
+public class BaseTest implements ITestConstants {
 
     BasePage basePage =  new BasePage();
     MyAccountPage myAccountPage = new MyAccountPage();

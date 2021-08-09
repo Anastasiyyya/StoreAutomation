@@ -1,4 +1,4 @@
-package pageObjects;
+package page_objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

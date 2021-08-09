@@ -1,10 +1,10 @@
-package testData;
+package test_data;
 
 import java.util.Random;
 
-public interface IGenerateEmail {
+public class Utils {
 
-    default String generateRandomString(int length){
+    public static String generateRandomString(int length){
         Random r = new Random();
         StringBuffer sb = new StringBuffer();
         while(sb.length() < length){

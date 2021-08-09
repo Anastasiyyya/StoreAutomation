@@ -1,4 +1,4 @@
-package pageConstants;
+package page_constants;
 
 public interface IConstants {
 

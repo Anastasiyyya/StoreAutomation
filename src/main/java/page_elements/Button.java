@@ -1,4 +1,4 @@
-package pageElements;
+package page_elements;
 
 import com.codeborne.selenide.Condition;
 import lombok.AllArgsConstructor;

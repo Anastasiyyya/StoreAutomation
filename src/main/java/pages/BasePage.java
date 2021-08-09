@@ -1,6 +1,6 @@
 package pages;
 
-import pageConstants.IConstants;
+import page_constants.IConstants;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BasePage implements IConstants {
