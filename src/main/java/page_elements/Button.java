@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.openqa.selenium.By;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -22,6 +24,10 @@ public class Button {
      * @param button
      */
     public void waitForButtonVisible(String button) {
-        $(button).shouldBe(Condition.visible, Duration.ofSeconds(30));
+        $(button).shouldBe(Condition.visible, Duration.ofSeconds(10));
+    }
+
+    public void clickButton(String button) {
+        $(button).click();
     }
 }

@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class Input {
 
     String label;
-    public static final String INPUTS_XPATH = "//*[contains(text(),'%s')]/ancestor::*[contains(@class,'required')]//input";
+    public static final String INPUTS_XPATH = "//label[contains(text(),'%s')]/..//input";
 
     public Input(String label) {
         this.label = label;

@@ -1,14 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.checkerframework.checker.units.qual.C;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.BasePage;
-import pages.MyAccountPage;
+import pages.*;
 import steps.AuthorizationSteps;
 import steps.CreateAccountSteps;
 import test_data.ITestConstants;
-import test_data.Utils;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -18,6 +17,10 @@ public class BaseTest implements ITestConstants {
     MyAccountPage myAccountPage = new MyAccountPage();
     CreateAccountSteps createAccountSteps =  new CreateAccountSteps();
     AuthorizationSteps authorizationSteps = new AuthorizationSteps();
+    HeaderPage headerPage;
+    ProductCategoryPage productCategoryPage;
+    CartPage cartPage;
+    QuickViewProductModalPage quickViewProductModalPage;
 
     @BeforeMethod
     public void setUp(){
@@ -45,6 +48,10 @@ public class BaseTest implements ITestConstants {
         createAccountSteps = new CreateAccountSteps();
         myAccountPage = new MyAccountPage();
         authorizationSteps =  new AuthorizationSteps();
+        headerPage = new HeaderPage();
+        productCategoryPage = new ProductCategoryPage();
+        cartPage = new CartPage();
+        quickViewProductModalPage = new QuickViewProductModalPage();
     }
 }
 

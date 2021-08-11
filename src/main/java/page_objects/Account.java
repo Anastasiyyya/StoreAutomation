@@ -13,11 +13,4 @@ public class Account {
     private String dayOfBirth;
     private String monthOfBirth;
     private String yearOfBirth;
-    private String company;
-    private String address;
-    private String city;
-    private String state;
-    private String zipCode;
-    private String country;
-    private String mobilePhone;
 }

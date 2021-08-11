@@ -1,5 +1,33 @@
 package pages;
 
+import page_elements.Button;
+import page_elements.Dropdown;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.actions;
+
 public class HeaderPage extends BasePage{
 
+    public static final String CART_DROPDOWN_CSS = "#header .shopping_cart > a";
+    public static final String BLOCK_TOP_MENU_CSS = "#block_top_menu a[title=%s]"; //Women //Dresses //T-shirts
+    public static final String BLOCK_SUB_MENU_CSS = ".submenu-container ul [title='%s']"; //T-shirts //Blouses //Casual Dresses //Evening Dresses //Summer Dresses
+
+    public static final String DROPDOWN_CURRENCY_XPATH = "//*[contains(text(),'%s')]";
+    public static final String DROPDOWN_CURRENCY_OPTION_CSS = "//*[@title='%s']"; //Гривна //Доллар //Евро
+
+    public HeaderPage moveToMenuButton(String buttonName) {
+        new Button().waitForButtonVisible((String.format(BLOCK_TOP_MENU_CSS,buttonName)));
+        actions().moveToElement($(String.format(BLOCK_TOP_MENU_CSS, buttonName))).perform();
+        return this;
+    }
+
+    public ProductCategoryPage moveAndClickOnSubMenuButton(String buttonName) {
+        actions().moveToElement($(String.format(BLOCK_SUB_MENU_CSS, buttonName))).click().perform();
+        return new ProductCategoryPage();
+    }
+
+    public HeaderPage changeCurrencyTo(String option) {
+        new Dropdown("Валюта :").selectDropdownOption(DROPDOWN_CURRENCY_XPATH,DROPDOWN_CURRENCY_OPTION_CSS, option);
+        return this;
+    }
 }
