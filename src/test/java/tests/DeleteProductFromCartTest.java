@@ -10,19 +10,19 @@ public class DeleteProductFromCartTest extends BaseTest {
     public void addProductToCartTest() {
         authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
-        headerPage.moveToMenuButton("Women")
-                .changeCurrencyTo("Доллар")
-                .moveAndClickOnSubMenuButton("Summer Dresses")
-                .chooseDropdownAndOption("Show","24")
-                .chooseDropdownAndOption("Sort by", "Price: Lowest first")
-                .changeViewTo("list")
-                .selectProductByPrice("$27.43")
+        headerPage.moveToMenuButton(WOMEN)
+                .changeCurrencyTo(DOLLAR)
+                .moveAndClickOnSubMenuButton(SUMMER_DRESSES)
+                .chooseDropdownAndOption(SHOW_DROPDOWN,SHOW_DROPDOWN_12)
+                .chooseDropdownAndOption(SORT_BY_DROPDOWN, PRICE_LOWEST_FIRST)
+                .changeViewTo(VIEW_AS_LIST)
+                .selectProductByPrice(SUMMER_DRESS_PRODUCT_PRICE)
                 .addProductToCart()
                 .clickContinueShoppingButton()
-                .selectProductByName("Royal Blue  Dress")
+                .selectProductByName(ROYAL_BLUE_DRESS)
                 .addProductToCart()
                 .clickProceedToCheckoutButton()
-                .findProductByNameAndDelete("Printed Maxi Dress");
+                .findProductByNameAndDelete(PRINTED_MAXI_DRESS);
         Assert.assertEquals(cartPage.getCountOfProducts(),1);
     }
 }

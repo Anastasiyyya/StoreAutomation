@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import page_elements.Dropdown;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductCategoryPage extends BasePage {

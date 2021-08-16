@@ -1,7 +1,6 @@
 package page_elements;
 
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class Checkbox {

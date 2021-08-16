@@ -15,19 +15,34 @@ public class HeaderPage extends BasePage{
     public static final String DROPDOWN_CURRENCY_XPATH = "//*[contains(text(),'%s')]";
     public static final String DROPDOWN_CURRENCY_OPTION_CSS = "//*[@title='%s']"; //Гривна //Доллар //Евро
 
+    /**
+     * This method moves to menu button.
+     * @param buttonName
+     * @return HeaderPage
+     */
     public HeaderPage moveToMenuButton(String buttonName) {
         new Button().waitForButtonVisible((String.format(BLOCK_TOP_MENU_CSS,buttonName)));
         actions().moveToElement($(String.format(BLOCK_TOP_MENU_CSS, buttonName))).perform();
         return this;
     }
 
+    /**
+     * This method moves and clicks on subMenu button.
+     * @param buttonName
+     * @return
+     */
     public ProductCategoryPage moveAndClickOnSubMenuButton(String buttonName) {
         actions().moveToElement($(String.format(BLOCK_SUB_MENU_CSS, buttonName))).click().perform();
         return new ProductCategoryPage();
     }
 
-    public HeaderPage changeCurrencyTo(String option) {
-        new Dropdown("Валюта :").selectDropdownOption(DROPDOWN_CURRENCY_XPATH,DROPDOWN_CURRENCY_OPTION_CSS, option);
+    /**
+     * This method changes currency on the site to another
+     * @param currency
+     * @return HeaderPage
+     */
+    public HeaderPage changeCurrencyTo(String currency) {
+        new Dropdown("Валюта :").selectDropdownOption(DROPDOWN_CURRENCY_XPATH,DROPDOWN_CURRENCY_OPTION_CSS, currency);
         return this;
     }
 }

@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.checkerframework.checker.units.qual.C;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -22,6 +21,9 @@ public class BaseTest implements ITestConstants {
     CartPage cartPage;
     QuickViewProductModalPage quickViewProductModalPage;
 
+    /**
+     * This method performed before the test.
+     */
     @BeforeMethod
     public void setUp(){
         Configuration.browser = "chrome";

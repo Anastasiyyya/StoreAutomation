@@ -1,11 +1,6 @@
 package page_elements;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class Dropdown {
@@ -32,7 +27,7 @@ public class Dropdown {
         if(dropdownName.equals("years")){
             $(BIRTHDAY_YEAR_DROPDOWN_CSS).click();
             $(String.format(DROPDOWN_YEAR_OPTION_CSS, option)).scrollIntoView(true).click();
-        }else {
+        } else {
             $(String.format(BIRTHDAY_DAY_MONTH_DROPDOWN_CSS, dropdownName)).click();
             $(String.format(DROPDOWN_OPTION_CSS,dropdownName, option)).click();
         }
