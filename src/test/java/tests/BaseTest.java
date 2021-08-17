@@ -1,14 +1,11 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import steps.AuthorizationSteps;
 import steps.CreateAccountSteps;
 import test_data.ITestConstants;
-
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BaseTest implements ITestConstants {
 
