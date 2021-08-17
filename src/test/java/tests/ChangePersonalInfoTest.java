@@ -17,6 +17,6 @@ public class ChangePersonalInfoTest extends BaseTest {
                 .clickOnAccountButton()
                 .clickOnPersonalInfoButton()
                 .replaceDataAndSave(account);
-        Assert.assertEquals(productCategoryPage.getSearchMessageText(), "Please enter a search keyword");
+        //Assert.assertEquals(personalInfoPage.getChangedMessageText(), "Your personal information has been successfully updated.");
     }
 }

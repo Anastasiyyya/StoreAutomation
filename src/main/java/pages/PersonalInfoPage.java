@@ -13,4 +13,8 @@ public class PersonalInfoPage extends MyAccountPage {
         new Button("Save").click();
         return this;
     }
+
+    /*public String getChangedMessageText(){
+        return $().getText();
+    }*/
 }
