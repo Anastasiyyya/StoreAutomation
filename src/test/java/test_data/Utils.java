@@ -4,6 +4,11 @@ import java.util.Random;
 
 public class Utils {
 
+    /**
+     * This method generate a random string
+     * @param length
+     * @return String
+     */
     public static String generateRandomString(int length){
         Random r = new Random();
         StringBuffer sb = new StringBuffer();

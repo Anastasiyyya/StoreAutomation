@@ -7,10 +7,11 @@ public class Dropdown {
 
     String label;
 
-    public static final String BIRTHDAY_DROPDOWN_XPATH = "//*[contains(text(),'Date of Birth')]/ancestor::*[@class='form-group']//*[@id = '%s']"; //days /month /years
+    public static final String BIRTHDAY_YEAR_DROPDOWN_CSS = "#cuselFrame-years";
+    public static final String BIRTHDAY_DAY_MONTH_DROPDOWN_CSS = "[name='%s']"; //days //months
 
-    public static final String DROPDOWN_XPATH = "//*[contains(text(),'%s')]/ancestor::*[contains(@class,'required')]";
-    public static final String DROPDOWN_OPTION_XPATH = "//*[contains(@class,'form-control')]/descendant::*[contains(text(),'%s')]";
+    public static final String DROPDOWN_YEAR_OPTION_CSS = "#cusel-scroll-years [val='%s']";
+    public static final String DROPDOWN_OPTION_CSS = "#%s [value='%s']"; //days //months
 
     public Dropdown(String label) {
         this.label = label;
@@ -22,16 +23,22 @@ public class Dropdown {
      * @param option
      */
     public void selectBirthdayDropdownOption(String dropdownName, String option) {
-        $(By.xpath(String.format(BIRTHDAY_DROPDOWN_XPATH, dropdownName))).click();
-        $(By.xpath(String.format(DROPDOWN_OPTION_XPATH, option))).click();
+
+        if(dropdownName.equals("years")){
+            $(BIRTHDAY_YEAR_DROPDOWN_CSS).click();
+            $(String.format(DROPDOWN_YEAR_OPTION_CSS, option)).scrollIntoView(true).click();
+        } else {
+            $(String.format(BIRTHDAY_DAY_MONTH_DROPDOWN_CSS, dropdownName)).click();
+            $(String.format(DROPDOWN_OPTION_CSS,dropdownName, option)).click();
+        }
     }
 
     /**
      * This method selects dropdown option
-     * @param option
+     * @param option,dropdownName
      */
-    public void selectDropdownOption(String option) {
-        $(By.xpath(String.format(DROPDOWN_XPATH, label))).click();
-        $(By.xpath(String.format(DROPDOWN_OPTION_XPATH, option))).click();
+    public void selectDropdownOption(String dropdownXpath,String dropdownOptionXpath, String option) {
+        $(By.xpath(String.format(dropdownXpath, label))).click();
+        $(By.xpath(String.format(dropdownOptionXpath, option))).click();
     }
 }

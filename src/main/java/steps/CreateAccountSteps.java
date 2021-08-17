@@ -14,6 +14,12 @@ public class CreateAccountSteps {
         authorizationPage = new AuthorizationPage();
     }
 
+    /**
+     * This step creates an account
+     * @param email
+     * @param account
+     * @return CreateAccountSteps
+     */
     public CreateAccountSteps createAccount(String email, Account account) {
         authorizationPage
                 .openPage()
