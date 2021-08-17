@@ -39,7 +39,6 @@ public class CartPage extends HeaderPage {
     public CartPage findProductByNameAndDelete(String productName){
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).click();
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).shouldNotBe(Condition.visible, Duration.ofSeconds(10));
-        //Selenide.sleep(3000);
         return this;
     }
 }
