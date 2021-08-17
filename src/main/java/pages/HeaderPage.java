@@ -9,11 +9,11 @@ import static com.codeborne.selenide.Selenide.actions;
 public class HeaderPage extends BasePage{
 
     public static final String CART_DROPDOWN_CSS = "#header .shopping_cart > a";
-    public static final String BLOCK_TOP_MENU_CSS = "#block_top_menu a[title=%s]"; //Women //Dresses //T-shirts
-    public static final String BLOCK_SUB_MENU_CSS = ".submenu-container ul [title='%s']"; //T-shirts //Blouses //Casual Dresses //Evening Dresses //Summer Dresses
+    public static final String BLOCK_TOP_MENU_CSS = "#block_top_menu a[title=%s]";
+    public static final String BLOCK_SUB_MENU_CSS = ".submenu-container ul [title='%s']";
 
     public static final String DROPDOWN_CURRENCY_XPATH = "//*[contains(text(),'%s')]";
-    public static final String DROPDOWN_CURRENCY_OPTION_CSS = "//*[@title='%s']"; //Гривна //Доллар //Евро
+    public static final String DROPDOWN_CURRENCY_OPTION_CSS = "//*[@title='%s']";
 
     /**
      * This method moves to menu button.

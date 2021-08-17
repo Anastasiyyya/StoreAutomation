@@ -1,14 +1,18 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
+
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class CartPage extends HeaderPage {
 
     public static final String PRODUCT_NAME_XPATH = "//tr//*[contains(text(),'%s')]";
     public static final String PRODUCT_CSS = "#cart_summary .cart_item";
-    public static final String DELETE_PRODUCT_BUTTON_XPATH = "//*[contains(text(),'Faded Short Sleeve T-shirts')]/ancestor::tbody//*[@class = 'cart_quantity_delete']";
+    public static final String DELETE_PRODUCT_BUTTON_XPATH = "//*[contains(text(),'%s')]/ancestor::tbody//*[@class = 'cart_quantity_delete']";
 
     /**
      * This method gets productName fro
@@ -33,8 +37,9 @@ public class CartPage extends HeaderPage {
      * @return CartPage
      */
     public CartPage findProductByNameAndDelete(String productName){
-        $(By.xpath(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName))).click();
-        Selenide.sleep(3000);
+        $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).click();
+        $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).shouldNotBe(Condition.visible, Duration.ofSeconds(10));
+        //Selenide.sleep(3000);
         return this;
     }
 }

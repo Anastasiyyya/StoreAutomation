@@ -36,11 +36,11 @@ public class BaseTest implements ITestConstants {
 
     /**
      * This method executed after test methods and closes browser.
-     */
+     *//*
     @AfterMethod
     public void closeBrowser(){
         getWebDriver().quit();
-    }
+    }*/
 
     /**
      * This method inits pages for this project

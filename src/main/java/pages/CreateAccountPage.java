@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CreateAccountPage extends HeaderPage{
 
-    public static final String REGISTRATION_BUTTON_CSS = "#submitAccount";
     public static final String MR_CSS = "#uniform-id_gender1";
     public static final String MRS_CSS = "#uniform-id_gender2";
 
@@ -16,7 +15,7 @@ public class CreateAccountPage extends HeaderPage{
      * @return
      */
     public MyAccountPage createAccount(Account account) {
-        new Button().waitForButtonVisible(REGISTRATION_BUTTON_CSS);
+        new Button().waitForButtonVisibleByLabel("Register");
         new RadioButton().selectRadioButton(MRS_CSS);
         new Input("First name").enterTextToField(account.getFirstName());
         new Input("Last name").enterTextToField(account.getLastName());
@@ -26,7 +25,7 @@ public class CreateAccountPage extends HeaderPage{
         new Dropdown("Date of Birth").selectBirthdayDropdownOption("years", account.getYearOfBirth());
         new Checkbox("Sign up for our newsletter!").selectCheckbox();
         new Checkbox("Receive special offers from our partners!").selectCheckbox();
-        $(REGISTRATION_BUTTON_CSS).click();
+        new Button("Register").click();
         return new MyAccountPage();
     }
 }
