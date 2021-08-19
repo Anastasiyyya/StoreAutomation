@@ -15,7 +15,7 @@ public class AddNewAddressTest extends BaseTest {
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
         addNewAddressSteps
                 .addNewAddress(address);
-        Assert.assertFalse(myAddressesPage.addressesListIsEmpty());
+        Assert.assertFalse(myAddressesPage.IsAddressesListEmpty());
     }
 
     @Test(description = "Check that the address list is empty")
@@ -26,7 +26,7 @@ public class AddNewAddressTest extends BaseTest {
         addNewAddressSteps
                 .addNewAddress(address);
         myAddressesPage.deleteAllAddressesIfExist();
-        Assert.assertTrue(myAddressesPage.addressesListIsEmpty());
-        Assert.assertEquals(myAddressesPage.getWarningAfterDelete(), "No addresses are available. Add a new address");
+        Assert.assertTrue(myAddressesPage.IsAddressesListEmpty());
+        Assert.assertEquals(myAddressesPage.getWarningText(), "No addresses are available. Add a new address");
     }
 }

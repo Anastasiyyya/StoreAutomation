@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class MyAddressesPage extends MyAccountPage {
 
     private final ElementsCollection addressesList = $$(".addresses .address");
-    private final ElementsCollection addressesList_Delete = $$("[title='Delete']");
+    private final ElementsCollection deleteAddressesList = $$("[title='Delete']");
 
     /**
      * This method adds a new address
@@ -39,7 +39,7 @@ public class MyAddressesPage extends MyAccountPage {
      * @return MyAddressesPage
      */
     public MyAddressesPage deleteAllAddressesIfExist() {
-        addressesList_Delete.stream().iterator().forEachRemaining(SelenideElement::click);
+        deleteAddressesList.stream().iterator().forEachRemaining(SelenideElement::click);
         switchTo().alert().accept();
         return this;
     }
@@ -48,7 +48,7 @@ public class MyAddressesPage extends MyAccountPage {
      * This method check that the addresses list iss empty.
      * @return boolean
      */
-    public boolean addressesListIsEmpty(){
+    public boolean IsAddressesListEmpty(){
         return addressesList.isEmpty();
     }
 
@@ -56,7 +56,7 @@ public class MyAddressesPage extends MyAccountPage {
      * This method gets warning message when addresses list is empty
      * @return message
      */
-    public String getWarningAfterDelete() {
+    public String getWarningText() {
         return $(".alert").getText();
     }
 }
