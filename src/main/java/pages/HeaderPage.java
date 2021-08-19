@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
 import page_elements.Button;
 import page_elements.Dropdown;
 
@@ -8,10 +7,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
 public class HeaderPage extends BasePage{
-
-    public SelenideElement searchInputField = $("#search_query_top");
-    public SelenideElement searchButton = $("#searchbox > button");
-    public SelenideElement accountButton = $(".account");
 
     public static final String CART_DROPDOWN_CSS = "#header .shopping_cart > a";
     public static final String BLOCK_TOP_MENU_CSS = "#block_top_menu a[title=%s]";
@@ -49,16 +44,5 @@ public class HeaderPage extends BasePage{
     public HeaderPage changeCurrencyTo(String currency) {
         new Dropdown("Валюта :").selectDropdownOption(DROPDOWN_CURRENCY_XPATH,DROPDOWN_CURRENCY_OPTION_CSS, currency);
         return this;
-    }
-
-    public ProductCategoryPage searchProduct(String productName) {
-        searchInputField.sendKeys(productName);
-        searchButton.click();
-        return new ProductCategoryPage();
-    }
-
-    public MyAccountPage clickOnAccountButton(){
-        accountButton.click();
-        return new MyAccountPage();
     }
 }

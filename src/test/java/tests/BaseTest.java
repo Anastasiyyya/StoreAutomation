@@ -20,7 +20,6 @@ public class BaseTest implements ITestConstants {
     ProductCategoryPage productCategoryPage;
     CartPage cartPage;
     QuickViewProductModalPage quickViewProductModalPage;
-    PersonalInfoPage personalInfoPage;
 
     /**
      * This method performed before the test.
@@ -37,11 +36,11 @@ public class BaseTest implements ITestConstants {
 
     /**
      * This method executed after test methods and closes browser.
-     */
+     *//*
     @AfterMethod
     public void closeBrowser(){
         getWebDriver().quit();
-    }
+    }*/
 
     /**
      * This method inits pages for this project
@@ -55,7 +54,6 @@ public class BaseTest implements ITestConstants {
         productCategoryPage = new ProductCategoryPage();
         cartPage = new CartPage();
         quickViewProductModalPage = new QuickViewProductModalPage();
-        personalInfoPage = new PersonalInfoPage();
     }
 }
 

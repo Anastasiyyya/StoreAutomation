@@ -1,19 +1,11 @@
 package pages;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import page_elements.Dropdown;
-
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductCategoryPage extends BasePage {
-
-    public ElementsCollection products = $$(".product_list .product-name");
-    public SelenideElement searchMessage = $("#center_column > p");
 
     public static final String DROPDOWN_XPATH = "//*[contains(text(),'%s')]/ancestor::form//select"; //Sort by //Show
     public static final String DROPDOWN_OPTION_XPATH = "//option[contains(text(),'%s')]";
@@ -81,14 +73,5 @@ public class ProductCategoryPage extends BasePage {
      */
     public String getProductPriceByName(String productName){
         return $x(String.format(PRODUCT_PRICE_XPATH, productName)).getText();
-    }
-
-    public boolean isProductListNotEmpty() {
-        ElementsCollection productList = products;
-        return !productList.isEmpty();
-    }
-
-    public String getSearchMessageText(){
-        return searchMessage.getText();
     }
 }

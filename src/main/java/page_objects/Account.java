@@ -13,10 +13,4 @@ public class Account {
     private String dayOfBirth;
     private String monthOfBirth;
     private String yearOfBirth;
-
-    public Account(String firstName, String lastName, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-    }
 }
