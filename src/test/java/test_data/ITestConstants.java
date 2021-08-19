@@ -21,4 +21,12 @@ public interface ITestConstants {
     String PRICE_LOWEST_FIRST = "Price: Lowest first";
     String VIEW_AS_LIST = "list";
     String SUMMER_DRESS_PRODUCT_PRICE = "$27.43";
+    String COMPANY = "CompanyName";
+    String ADDRESS = "CompanyAddress";
+    String ZIP_CODE = "88888";
+    String CITY = "New York";
+    String COUNTRY = "США";
+    String HOME_PHONE = "375171111111";
+    String MOBILE_PHONE = "375291111111";
+    String TITLE = "Address title";
 }
