@@ -19,4 +19,9 @@ public class Input {
     public void enterTextToField(String text) {
         $(By.xpath(String.format(INPUTS_XPATH, label))).sendKeys(text);
     }
+
+    public void replaceFieldTextTo(String text) {
+        $(By.xpath(String.format(INPUTS_XPATH, label))).clear();
+        $(By.xpath(String.format(INPUTS_XPATH, label))).sendKeys(text);
+    }
 }
