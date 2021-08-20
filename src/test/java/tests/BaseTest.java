@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
-import steps.AddNewAddressSteps;
 import steps.AuthorizationSteps;
 import steps.CreateAccountSteps;
 import test_data.ITestConstants;
@@ -21,8 +20,7 @@ public class BaseTest implements ITestConstants {
     ProductCategoryPage productCategoryPage;
     CartPage cartPage;
     QuickViewProductModalPage quickViewProductModalPage;
-    AddNewAddressSteps addNewAddressSteps;
-    MyAddressesPage myAddressesPage;
+    PersonalInfoPage personalInfoPage;
 
     /**
      * This method performed before the test.
@@ -48,7 +46,7 @@ public class BaseTest implements ITestConstants {
     /**
      * This method inits pages for this project
      */
-    public void initPages() {
+    public void initPages(){
         basePage =  new BasePage();
         createAccountSteps = new CreateAccountSteps();
         myAccountPage = new MyAccountPage();
@@ -57,9 +55,7 @@ public class BaseTest implements ITestConstants {
         productCategoryPage = new ProductCategoryPage();
         cartPage = new CartPage();
         quickViewProductModalPage = new QuickViewProductModalPage();
-        myAccountPage = new MyAccountPage();
-        addNewAddressSteps = new AddNewAddressSteps();
-        myAddressesPage = new MyAddressesPage();
+        personalInfoPage = new PersonalInfoPage();
     }
 }
 
