@@ -1,9 +1,7 @@
 package page_elements;
 
-import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public class Dropdown {
 
@@ -14,10 +12,6 @@ public class Dropdown {
 
     public static final String DROPDOWN_YEAR_OPTION_CSS = "#cusel-scroll-years [val='%s']";
     public static final String DROPDOWN_OPTION_CSS = "#%s [value='%s']"; //days //months
-
-    public static final String DROPDOWN_XPATH = "//*[contains(text(),'%s')]/ancestor::*[contains(@class,'required')]/div";
-    public static final String DROPDOWN_OPTION_XPATH = "//*[@class='form-control']//*[contains(text(),'%s')]";
-
 
     public Dropdown(String label) {
         this.label = label;
@@ -46,11 +40,5 @@ public class Dropdown {
     public void selectDropdownOption(String dropdownXpath,String dropdownOptionXpath, String option) {
         $(By.xpath(String.format(dropdownXpath, label))).click();
         $(By.xpath(String.format(dropdownOptionXpath, option))).click();
-    }
-
-    public void select(String option) {
-        $x(String.format(DROPDOWN_XPATH, label)).click();
-        SelenideElement dropdownOption = $x(String.format(DROPDOWN_OPTION_XPATH, option));
-        dropdownOption.scrollIntoView(true).click();
     }
 }
