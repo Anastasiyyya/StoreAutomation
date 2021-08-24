@@ -10,15 +10,8 @@ public class AddProductsToCartTests extends BaseTest {
     public void addProductToCartTest() {
         authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
-        headerPage.moveToMenuButton(WOMEN)
-                .changeCurrencyTo(DOLLAR)
-                .moveAndClickOnSubMenuButton(SUMMER_DRESSES)
-                .chooseDropdownAndOption(SHOW_DROPDOWN,SHOW_DROPDOWN_24)
-                .chooseDropdownAndOption(SORT_BY_DROPDOWN, PRICE_LOWEST_FIRST)
-                .changeViewTo(VIEW_AS_LIST)
-                .selectProductByPrice(SUMMER_DRESS_PRODUCT_PRICE)
-                .addProductToCart()
-                .clickProceedToCheckoutButton();
+        addProductToCartSteps.addNewProduct(WOMEN, DOLLAR, SUMMER_DRESSES, SHOW_DROPDOWN, SHOW_DROPDOWN_24, SORT_BY_DROPDOWN, PRICE_LOWEST_FIRST,
+                VIEW_AS_LIST, SUMMER_DRESS_PRODUCT_PRICE);
         Assert.assertEquals(productCategoryPage.getProductNameByPrice(SUMMER_DRESS_PRODUCT_PRICE), "Printed Maxi Dress");
     }
 
@@ -26,18 +19,8 @@ public class AddProductsToCartTests extends BaseTest {
     public void addMultiplyProductToCartTest() {
         authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
-        headerPage.moveToMenuButton(WOMEN)
-                .changeCurrencyTo(DOLLAR)
-                .moveAndClickOnSubMenuButton(SUMMER_DRESSES)
-                .chooseDropdownAndOption(SHOW_DROPDOWN,SHOW_DROPDOWN_24)
-                .chooseDropdownAndOption(SORT_BY_DROPDOWN, PRICE_LOWEST_FIRST)
-                .changeViewTo(VIEW_AS_LIST)
-                .selectProductByPrice(SUMMER_DRESS_PRODUCT_PRICE)
-                .addProductToCart()
-                .clickContinueShoppingButton()
-                .selectProductByName(ROYAL_BLUE_DRESS)
-                .addProductToCart()
-                .clickProceedToCheckoutButton();
+        addProductToCartSteps.addTwoProducts(WOMEN, DOLLAR, SUMMER_DRESSES, SHOW_DROPDOWN, SHOW_DROPDOWN_24, SORT_BY_DROPDOWN, PRICE_LOWEST_FIRST,
+                VIEW_AS_LIST, SUMMER_DRESS_PRODUCT_PRICE, ROYAL_BLUE_DRESS);
         Assert.assertEquals(cartPage.getCountOfProducts(),2);
     }
 }

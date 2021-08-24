@@ -10,10 +10,10 @@ public class Dropdown {
     String label;
 
     public static final String BIRTHDAY_YEAR_DROPDOWN_CSS = "#cuselFrame-years";
-    public static final String BIRTHDAY_DAY_MONTH_DROPDOWN_CSS = "[name='%s']"; //days //months
+    public static final String BIRTHDAY_DAY_MONTH_DROPDOWN_CSS = "[name='%s']";
 
     public static final String DROPDOWN_YEAR_OPTION_CSS = "#cusel-scroll-years [val='%s']";
-    public static final String DROPDOWN_OPTION_CSS = "#%s [value='%s']"; //days //months
+    public static final String DROPDOWN_OPTION_CSS = "#%s [value='%s']";
 
     public static final String DROPDOWN_XPATH = "//*[contains(text(),'%s')]/ancestor::*[contains(@class,'required')]/div";
     public static final String DROPDOWN_OPTION_XPATH = "//*[@class='form-control']//*[contains(text(),'%s')]";
@@ -48,7 +48,11 @@ public class Dropdown {
         $(By.xpath(String.format(dropdownOptionXpath, option))).click();
     }
 
-    public void select(String option) {
+    /**
+     * This method selects dropdown option
+     * @param option
+     */
+    public void selectOption(String option) {
         $x(String.format(DROPDOWN_XPATH, label)).click();
         SelenideElement dropdownOption = $x(String.format(DROPDOWN_OPTION_XPATH, option));
         dropdownOption.scrollIntoView(true).click();

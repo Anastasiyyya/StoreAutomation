@@ -12,6 +12,7 @@ public class HeaderPage extends BasePage{
     public SelenideElement searchInputField = $("#search_query_top");
     public SelenideElement searchButton = $("#searchbox > button");
     public SelenideElement accountButton = $(".account");
+    public SelenideElement logOutButton = $(".logout");
 
     public static final String CART_DROPDOWN_CSS = "#header .shopping_cart > a";
     public static final String BLOCK_TOP_MENU_CSS = "#block_top_menu a[title=%s]";
@@ -51,14 +52,32 @@ public class HeaderPage extends BasePage{
         return this;
     }
 
+    /**
+     * This method searches product by name
+     * @param productName
+     * @return ProductCategoryPage
+     */
     public ProductCategoryPage searchProduct(String productName) {
         searchInputField.sendKeys(productName);
         searchButton.click();
         return new ProductCategoryPage();
     }
 
+    /**
+     * This method clicks on account button
+     * @return MyAccountPage
+     */
     public MyAccountPage clickOnAccountButton(){
         accountButton.click();
         return new MyAccountPage();
+    }
+
+    /**
+     * This method clicks on logOut button
+     * @return BasePage
+     */
+    public BasePage clickOnLogOutButton(){
+        logOutButton.click();
+        return new BasePage();
     }
 }

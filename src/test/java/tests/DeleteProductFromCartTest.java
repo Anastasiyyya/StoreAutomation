@@ -21,7 +21,7 @@ public class DeleteProductFromCartTest extends BaseTest {
                 .clickContinueShoppingButton()
                 .selectProductByName(ROYAL_BLUE_DRESS)
                 .addProductToCart()
-                .clickProceedToCheckoutButton()
+                .clickProceedToCheckoutButtonFromModal()
                 .findProductByNameAndDelete(PRINTED_MAXI_DRESS);
         Assert.assertEquals(cartPage.getCountOfProducts(),1);
     }

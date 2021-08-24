@@ -4,9 +4,7 @@ import com.codeborne.selenide.Condition;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -23,7 +21,10 @@ public class Button {
         this.label = label;
     }
 
-    public void click() {
+    /**
+     * This method searches button by label and clicks on this button
+     */
+    public void searchButtonByLabelAndClick() {
         $x(String.format(BUTTON_XPATH, label)).click();
     }
 
@@ -43,7 +44,19 @@ public class Button {
         $(button).shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
 
-    public void clickButton(String button) {
+    /**
+     * This method searches button by css and clicks on this button
+     * @param button
+     */
+    public void searchButtonByCssAndClick(String button) {
         $(button).click();
+    }
+
+    /**
+     * This method checks if the button was displayed
+     * @return boolean true/false
+     */
+    public boolean checkIfButtonDisplayed() {
+        return $x(String.format(BUTTON_XPATH, label)).isDisplayed();
     }
 }

@@ -1,11 +1,9 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
-
+import page_elements.Button;
 import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class CartPage extends HeaderPage {

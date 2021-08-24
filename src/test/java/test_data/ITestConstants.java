@@ -14,6 +14,7 @@ public interface ITestConstants {
     String SUMMER_DRESSES = "Summer Dresses";
     String ROYAL_BLUE_DRESS = "Royal Blue  Dress";
     String PRINTED_MAXI_DRESS = "Printed Maxi Dress";
+    String LIGHT_GREEN_THIN_SWEATER = "Light Green Thin Sweater";
     String SHOW_DROPDOWN = "Show";
     String SHOW_DROPDOWN_24 = "24";
     String SHOW_DROPDOWN_12 = "12";

@@ -20,6 +20,10 @@ public class Input {
         $(By.xpath(String.format(INPUTS_XPATH, label))).sendKeys(text);
     }
 
+    /**
+     * This method replace data in text field
+     * @param text
+     */
     public void replaceFieldTextTo(String text) {
         $(By.xpath(String.format(INPUTS_XPATH, label))).clear();
         $(By.xpath(String.format(INPUTS_XPATH, label))).sendKeys(text);

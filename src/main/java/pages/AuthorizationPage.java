@@ -26,7 +26,7 @@ public class AuthorizationPage extends HeaderPage{
     public CreateAccountPage writeEmail(String email) {
         new Button().waitForButtonVisibleByLabel("Create an account");
         $(CREATE_AN_ACCOUNT_EMAIL_INPUT_CSS).sendKeys(email);
-        new Button("Create an account").click();
+        new Button("Create an account").searchButtonByLabelAndClick();
         return new CreateAccountPage();
     }
 
@@ -40,7 +40,7 @@ public class AuthorizationPage extends HeaderPage{
         new Button().waitForButtonVisibleByLabel("Sign in");
         $(SIGN_IN_EMAIL_INPUT_CSS).sendKeys(email);
         $(SIGN_IN_PASSWORD_INPUT_CSS).sendKeys(password);
-        new Button("Sign in").click();
+        new Button("Sign in").searchButtonByLabelAndClick();
         return new MyAccountPage();
     }
 }
