@@ -88,7 +88,7 @@ public class ProductCategoryPage extends BasePage {
         return searchMessage.getText();
     }
 
-    public boolean checkIfTheProductDisplayed(String productName) {
+    public boolean isProductDisplayed(String productName) {
         return $(By.xpath(String.format(PRODUCT_XPATH,productName))).scrollIntoView(true).isDisplayed();
     }
 }

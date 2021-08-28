@@ -30,6 +30,6 @@ public class SearchProductTests extends BaseTest {
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
         headerPage
                 .searchProduct(LIGHT_GREEN_THIN_SWEATER);
-        Assert.assertTrue(productCategoryPage.checkIfTheProductDisplayed(LIGHT_GREEN_THIN_SWEATER));
+        Assert.assertTrue(productCategoryPage.isProductDisplayed(LIGHT_GREEN_THIN_SWEATER));
     }
 }
