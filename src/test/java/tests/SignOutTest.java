@@ -12,6 +12,6 @@ public class SignOutTest extends BaseTest {
         authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
         headerPage.clickOnLogOutButton();
-        Assert.assertTrue(new Button("Sign in").checkIfButtonDisplayed());
+        Assert.assertTrue(new Button("Sign in").isButtonDisplayed());
     }
 }

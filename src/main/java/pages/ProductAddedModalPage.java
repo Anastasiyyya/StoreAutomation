@@ -11,7 +11,7 @@ public class ProductAddedModalPage extends ProductCategoryPage {
      * @return ProductCategoryPage
      */
     public ProductCategoryPage clickContinueShoppingButton(){
-        new Button().searchButtonByCssAndClick(String.format(MODAL_PAGE_BUTTONS,"Продолжить покупки"));
+        new Button().searchButtonAndClick(String.format(MODAL_PAGE_BUTTONS,"Продолжить покупки"));
         return new ProductCategoryPage();
     }
 
@@ -19,8 +19,8 @@ public class ProductAddedModalPage extends ProductCategoryPage {
      * This method clicks on 'ProceedToCheckout' button
      * @return CartPage
      */
-    public CartPage clickProceedToCheckoutButtonFromModal(){
-        new Button().searchButtonByCssAndClick(String.format(MODAL_PAGE_BUTTONS,"Оформить заказ"));
+    public CartPage clickProceedToCheckoutButton(){
+        new Button().searchButtonAndClick(String.format(MODAL_PAGE_BUTTONS,"Оформить заказ"));
         return new CartPage();
     }
 }

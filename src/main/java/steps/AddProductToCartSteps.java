@@ -21,7 +21,7 @@ public class AddProductToCartSteps {
                 .changeViewTo(view)
                 .selectProductByPrice(productName)
                 .addProductToCart()
-                .clickProceedToCheckoutButtonFromModal();
+                .clickProceedToCheckoutButton();
         return this;
     }
 
@@ -38,7 +38,7 @@ public class AddProductToCartSteps {
                 .clickContinueShoppingButton()
                 .selectProductByName(secondProductName)
                 .addProductToCart()
-                .clickProceedToCheckoutButtonFromModal();
+                .clickProceedToCheckoutButton();
         return this;
     }
 }

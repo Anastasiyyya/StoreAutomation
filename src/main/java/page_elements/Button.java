@@ -48,7 +48,7 @@ public class Button {
      * This method searches button by css and clicks on this button
      * @param button
      */
-    public void searchButtonByCssAndClick(String button) {
+    public void searchButtonAndClick(String button) {
         $(button).click();
     }
 
@@ -56,7 +56,7 @@ public class Button {
      * This method checks if the button was displayed
      * @return boolean true/false
      */
-    public boolean checkIfButtonDisplayed() {
+    public boolean isButtonDisplayed() {
         return $x(String.format(BUTTON_XPATH, label)).isDisplayed();
     }
 }
