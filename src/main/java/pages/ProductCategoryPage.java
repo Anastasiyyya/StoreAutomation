@@ -3,11 +3,7 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import page_elements.Dropdown;
-
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductCategoryPage extends BasePage {
@@ -90,5 +86,9 @@ public class ProductCategoryPage extends BasePage {
 
     public String getSearchMessageText(){
         return searchMessage.getText();
+    }
+
+    public boolean isProductDisplayed(String productName) {
+        return $(By.xpath(String.format(PRODUCT_XPATH,productName))).scrollIntoView(true).isDisplayed();
     }
 }

@@ -2,7 +2,6 @@ package pages;
 
 import page_elements.*;
 import page_objects.Account;
-import static com.codeborne.selenide.Selenide.$;
 
 public class CreateAccountPage extends HeaderPage{
 
@@ -25,7 +24,7 @@ public class CreateAccountPage extends HeaderPage{
         new Dropdown("Date of Birth").selectBirthdayDropdownOption("years", account.getYearOfBirth());
         new Checkbox("Sign up for our newsletter!").selectCheckbox();
         new Checkbox("Receive special offers from our partners!").selectCheckbox();
-        new Button("Register").click();
+        new Button("Register").searchButtonByLabelAndClick();
         return new MyAccountPage();
     }
 }

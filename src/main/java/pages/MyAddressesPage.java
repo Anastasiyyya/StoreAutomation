@@ -18,19 +18,19 @@ public class MyAddressesPage extends MyAccountPage {
      */
     public MyAddressesPage addNewAddress(Address address){
         new Button().waitForButtonVisibleByLabel("Add a new address");
-        new Button("Add a new address").click();
+        new Button("Add a new address").searchButtonByLabelAndClick();
         new Input("First name").enterTextToField(address.getFirstName());
         new Input("Last name").enterTextToField(address.getLastName());
         new Input("Company").enterTextToField(address.getCompany());
         new Input("Address ").enterTextToField(address.getAddress());
         new Input("Zip/Postal Code ").enterTextToField(address.getZipCode());
         new Input("City ").enterTextToField(address.getCity());
-        new Dropdown("Country ").select("США");
+        new Dropdown("Country ").selectOption("США");
         new Input("Home phone ").enterTextToField(address.getHomePhone());
         new Input("Mobile phone ").enterTextToField(address.getMobilePhone());
-        new Dropdown("State ").select("New York");
+        new Dropdown("State ").selectOption("New York");
         new Input("Please assign an address title for future reference. ").enterTextToField(address.getTitle());
-        new Button("Save").click();
+        new Button("Save").searchButtonByLabelAndClick();
         return this;
     }
 

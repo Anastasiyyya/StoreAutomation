@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import steps.AddNewAddressSteps;
+import steps.AddProductToCartSteps;
 import steps.AuthorizationSteps;
 import steps.CreateAccountSteps;
 import test_data.ITestConstants;
@@ -23,6 +24,7 @@ public class BaseTest implements ITestConstants {
     QuickViewProductModalPage quickViewProductModalPage;
     AddNewAddressSteps addNewAddressSteps;
     MyAddressesPage myAddressesPage;
+    AddProductToCartSteps addProductToCartSteps;
 
     /**
      * This method performed before the test.
@@ -60,6 +62,7 @@ public class BaseTest implements ITestConstants {
         myAccountPage = new MyAccountPage();
         addNewAddressSteps = new AddNewAddressSteps();
         myAddressesPage = new MyAddressesPage();
+        addProductToCartSteps = new AddProductToCartSteps();
     }
 }
 
