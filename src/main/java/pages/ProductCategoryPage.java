@@ -2,10 +2,12 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import page_elements.Dropdown;
 import static com.codeborne.selenide.Selenide.*;
 
+@Log4j2
 public class ProductCategoryPage extends BasePage {
 
     public ElementsCollection products = $$(".product_list .product-name");
@@ -35,6 +37,7 @@ public class ProductCategoryPage extends BasePage {
      * @return ProductCategoryPage
      */
     public ProductCategoryPage changeViewTo(String view) {
+        log.info(String.format("Change view to %s", view));
         $(String.format(VIEW_CSS, view)).click();
         return this;
     }
@@ -45,6 +48,7 @@ public class ProductCategoryPage extends BasePage {
      * @return QuickViewProductModalPage
      */
     public QuickViewProductModalPage selectProductByPrice(String price){
+        log.info(String.format("Select product with price: %s", price));
         SelenideElement product = $(By.xpath(String.format(PRODUCT_XPATH,price)));
         product.scrollIntoView(true).click();
         return new QuickViewProductModalPage();
@@ -56,6 +60,7 @@ public class ProductCategoryPage extends BasePage {
      * @return QuickViewProductModalPage
      */
     public QuickViewProductModalPage selectProductByName(String productName){
+        log.info(String.format("Select product with name: %s", productName));
         SelenideElement product = $(By.xpath(String.format(PRODUCT_XPATH,productName)));
         product.scrollIntoView(true).click();
         return new QuickViewProductModalPage();
@@ -81,6 +86,7 @@ public class ProductCategoryPage extends BasePage {
 
     public boolean isProductListNotEmpty() {
         ElementsCollection productList = products;
+        log.info(String.format("Product list size is: %s", productList.size()));
         return !productList.isEmpty();
     }
 

@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import page_constants.IConstants;
 import static com.codeborne.selenide.Selenide.open;
 
+@Log4j2
 public class BasePage implements IConstants {
 
     /**
@@ -10,6 +12,7 @@ public class BasePage implements IConstants {
      * @param url
      */
     public void openPage(String url){
+        log.info(String.format("Open page by URL: '%s'", url));
         open(url);
     }
 }

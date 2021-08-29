@@ -2,10 +2,13 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.Data;
+import lombok.extern.log4j.Log4j2;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Data
+@Log4j2
 public class MyAccountPage extends HeaderPage {
 
     protected SelenideElement myAddressesButton = $x("//*[contains(text(),'My addresses')]");
@@ -33,6 +36,7 @@ public class MyAccountPage extends HeaderPage {
      * @return MyAddressesPage
      */
     public MyAddressesPage clickMyAddressesButton() {
+        log.info("Click 'My addresses' button");
         myAddressesButton.click();
         return new MyAddressesPage();
     }

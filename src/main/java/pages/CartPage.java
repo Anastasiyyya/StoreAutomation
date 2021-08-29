@@ -1,11 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import page_elements.Button;
 import java.time.Duration;
 import static com.codeborne.selenide.Selenide.*;
 
+@Log4j2
 public class CartPage extends HeaderPage {
 
     public static final String PRODUCT_NAME_XPATH = "//tr//*[contains(text(),'%s')]";
@@ -35,6 +36,7 @@ public class CartPage extends HeaderPage {
      * @return CartPage
      */
     public CartPage findProductByNameAndDelete(String productName){
+        log.info("Click button 'Delete'.");
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).click();
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).shouldNotBe(Condition.visible, Duration.ofSeconds(10));
         return this;

@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import page_elements.Button;
 import static com.codeborne.selenide.Selenide.$;
 
+@Log4j2
 public class AuthorizationPage extends HeaderPage{
 
     public static final String CREATE_AN_ACCOUNT_EMAIL_INPUT_CSS = "#email_create";
@@ -25,7 +27,9 @@ public class AuthorizationPage extends HeaderPage{
      */
     public CreateAccountPage writeEmail(String email) {
         new Button().waitForButtonVisibleByLabel("Create an account");
+        log.info(String.format("Fill in email: '%s' in sign in email field.", email));
         $(CREATE_AN_ACCOUNT_EMAIL_INPUT_CSS).sendKeys(email);
+        log.info("Click button 'Create an account'.");
         new Button("Create an account").searchButtonByLabelAndClick();
         return new CreateAccountPage();
     }
@@ -38,8 +42,11 @@ public class AuthorizationPage extends HeaderPage{
      */
     public MyAccountPage signIn(String email, String password) {
         new Button().waitForButtonVisibleByLabel("Sign in");
+        log.info(String.format("Fill in email: '%s' in sign in email field.", email));
         $(SIGN_IN_EMAIL_INPUT_CSS).sendKeys(email);
+        log.info(String.format("Fill in password: '%s' in password field.", password));
         $(SIGN_IN_PASSWORD_INPUT_CSS).sendKeys(password);
+        log.info("Click button 'Sign in'.");
         new Button("Sign in").searchButtonByLabelAndClick();
         return new MyAccountPage();
     }
