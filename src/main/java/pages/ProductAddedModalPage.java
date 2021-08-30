@@ -13,7 +13,7 @@ public class ProductAddedModalPage extends ProductCategoryPage {
      * @return ProductCategoryPage
      */
     public ProductCategoryPage clickContinueShoppingButton(){
-        new Button().searchButtonAndClick(String.format(MODAL_PAGE_BUTTONS,"Продолжить покупки"));
+        new Button().searchButtonAndClick(MODAL_PAGE_BUTTONS,"Продолжить покупки");
         return new ProductCategoryPage();
     }
 
@@ -23,7 +23,7 @@ public class ProductAddedModalPage extends ProductCategoryPage {
      */
     public CartPage clickProceedToCheckoutButton(){
         log.info("Click 'Proceed to checkout' button");
-        new Button().searchButtonAndClick(String.format(MODAL_PAGE_BUTTONS,"Оформить заказ"));
+        new Button().searchButtonAndClick(MODAL_PAGE_BUTTONS,"Оформить заказ");
         return new CartPage();
     }
 }

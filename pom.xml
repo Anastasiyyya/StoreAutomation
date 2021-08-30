@@ -19,7 +19,7 @@
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-testng.version>2.13.9</allure-testng.version>
         <log4j-core.version>2.14.1</log4j-core.version>
-        <jackson-dataformat-yaml.version>2.12.4</jackson-dataformat-yaml.version>
+        <jackson-dataformat-yaml.version>2.12.5</jackson-dataformat-yaml.version>
     </properties>
     <build>
         <plugins>

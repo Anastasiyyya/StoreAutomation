@@ -30,7 +30,7 @@ public class HeaderPage extends BasePage{
      */
     public HeaderPage moveToMenuButton(String buttonName) {
         new Button().waitForButtonVisible((String.format(BLOCK_TOP_MENU_CSS,buttonName)));
-        log.info("Move to menu button");
+        log.info(String.format("Move to menu button '%s'", buttonName));
         actions().moveToElement($(String.format(BLOCK_TOP_MENU_CSS, buttonName))).perform();
         return this;
     }
@@ -41,7 +41,7 @@ public class HeaderPage extends BasePage{
      * @return
      */
     public ProductCategoryPage moveAndClickOnSubMenuButton(String buttonName) {
-        log.info("Move to sub menu button");
+        log.info(String.format("Move to sub menu button '%s')", buttonName));
         actions().moveToElement($(String.format(BLOCK_SUB_MENU_CSS, buttonName))).click().perform();
         return new ProductCategoryPage();
     }

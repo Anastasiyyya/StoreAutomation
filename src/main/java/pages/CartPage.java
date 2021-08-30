@@ -36,7 +36,7 @@ public class CartPage extends HeaderPage {
      * @return CartPage
      */
     public CartPage findProductByNameAndDelete(String productName){
-        log.info("Click button 'Delete'.");
+        log.info(String.format("Click button 'Delete' for product '%s'", productName));
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).click();
         $x(String.format(DELETE_PRODUCT_BUTTON_XPATH, productName)).shouldNotBe(Condition.visible, Duration.ofSeconds(10));
         return this;
