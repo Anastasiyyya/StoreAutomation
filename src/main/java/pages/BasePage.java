@@ -12,7 +12,7 @@ public class BasePage implements IConstants {
      * This method opens page by URL
      * @param url
      */
-    @Step("Opening page by {url}}")
+    @Step("Opening page by {url}")
     public void openPage(String url){
         log.info(String.format("Open page by URL: '%s'", url));
         open(url);
