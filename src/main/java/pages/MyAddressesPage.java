@@ -2,10 +2,12 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.log4j.Log4j2;
 import page_elements.*;
 import page_objects.Address;
 import static com.codeborne.selenide.Selenide.*;
 
+@Log4j2
 public class MyAddressesPage extends MyAccountPage {
 
     private final ElementsCollection addressesList = $$(".addresses .address");
@@ -18,6 +20,7 @@ public class MyAddressesPage extends MyAccountPage {
      */
     public MyAddressesPage addNewAddress(Address address){
         new Button().waitForButtonVisibleByLabel("Add a new address");
+        log.info("Click 'Add a new address' button");
         new Button("Add a new address").searchButtonByLabelAndClick();
         new Input("First name").enterTextToField(address.getFirstName());
         new Input("Last name").enterTextToField(address.getLastName());
@@ -30,6 +33,7 @@ public class MyAddressesPage extends MyAccountPage {
         new Input("Mobile phone ").enterTextToField(address.getMobilePhone());
         new Dropdown("State ").selectOption("New York");
         new Input("Please assign an address title for future reference. ").enterTextToField(address.getTitle());
+        log.info("Click 'Save' button");
         new Button("Save").searchButtonByLabelAndClick();
         return this;
     }

@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import page_elements.*;
 import page_objects.Account;
 
+@Log4j2
 public class CreateAccountPage extends HeaderPage{
 
     public static final String MR_CSS = "#uniform-id_gender1";
@@ -24,6 +26,7 @@ public class CreateAccountPage extends HeaderPage{
         new Dropdown("Date of Birth").selectBirthdayDropdownOption("years", account.getYearOfBirth());
         new Checkbox("Sign up for our newsletter!").selectCheckbox();
         new Checkbox("Receive special offers from our partners!").selectCheckbox();
+        log.info("Click button 'Register'.");
         new Button("Register").searchButtonByLabelAndClick();
         return new MyAccountPage();
     }

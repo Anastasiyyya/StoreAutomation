@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+
 import java.time.Duration;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -11,6 +13,7 @@ import static com.codeborne.selenide.Selenide.$x;
 @Data
 @NoArgsConstructor
 @Builder
+@Log4j2
 public class Button {
 
     String label;
@@ -25,6 +28,7 @@ public class Button {
      * This method searches button by label and clicks on this button
      */
     public void searchButtonByLabelAndClick() {
+        log.info(String.format("Click button '%s'", label));
         $x(String.format(BUTTON_XPATH, label)).click();
     }
 
@@ -46,10 +50,11 @@ public class Button {
 
     /**
      * This method searches button by css and clicks on this button
-     * @param button
+     * @param buttonPath
      */
-    public void searchButtonAndClick(String button) {
-        $(button).click();
+    public void searchButtonAndClick(String buttonPath, String buttonName) {
+        log.info(String.format("Click button '%s'", buttonName));
+        $(String.format(buttonPath, buttonName)).click();
     }
 
     /**
