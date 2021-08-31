@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import page_elements.Dropdown;
@@ -26,6 +27,7 @@ public class ProductCategoryPage extends BasePage {
      * @param option
      * @return ProductCategoryPage
      */
+    @Step("Choose dropdown: {dropdownName} and option: {option}")
     public ProductCategoryPage chooseDropdownAndOption(String dropdownName, String option) {
         new Dropdown(dropdownName).selectDropdownOption(DROPDOWN_XPATH, DROPDOWN_OPTION_XPATH,option);
         return this;
@@ -36,6 +38,7 @@ public class ProductCategoryPage extends BasePage {
      * @param view
      * @return ProductCategoryPage
      */
+    @Step("Change view to {view}")
     public ProductCategoryPage changeViewTo(String view) {
         log.info(String.format("Change view to %s", view));
         $(String.format(VIEW_CSS, view)).click();
@@ -47,6 +50,7 @@ public class ProductCategoryPage extends BasePage {
      * @param price
      * @return QuickViewProductModalPage
      */
+    @Step("Select product with price: {price}")
     public QuickViewProductModalPage selectProductByPrice(String price){
         log.info(String.format("Select product with price: %s", price));
         SelenideElement product = $(By.xpath(String.format(PRODUCT_XPATH,price)));
@@ -59,6 +63,7 @@ public class ProductCategoryPage extends BasePage {
      * @param productName
      * @return QuickViewProductModalPage
      */
+    @Step("Select product with name: {productName}")
     public QuickViewProductModalPage selectProductByName(String productName){
         log.info(String.format("Select product with name: %s", productName));
         SelenideElement product = $(By.xpath(String.format(PRODUCT_XPATH,productName)));

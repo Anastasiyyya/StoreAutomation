@@ -1,12 +1,13 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
 @Log4j2
-public class QuickViewProductModalPage extends ProductCategoryPage {
+public class QuickViewProductModalPage extends BasePage {
 
     public static final String ADD_TO_CART_BUTTON_CSS = "#add_to_cart > button > span";
     public static final String CLOSE_MODAL_BUTTON_CSS = "[title=Close]";
@@ -15,6 +16,7 @@ public class QuickViewProductModalPage extends ProductCategoryPage {
      * This method adds product to cart
      * @return ProductAddedModalPage
      */
+    @Step("Adding product to cart")
     public ProductAddedModalPage addProductToCart() {
         log.info("Switch to frame");
         switchTo().frame(0);

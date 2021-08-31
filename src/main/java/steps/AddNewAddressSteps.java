@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import page_constants.IConstants;
 import page_objects.Address;
 import pages.BasePage;
@@ -18,6 +19,7 @@ public class AddNewAddressSteps {
         headerPage = new HeaderPage();
     }
 
+    @Step("Adding new address")
     public AddNewAddressSteps addNewAddress(Address address) {
         basePage
                 .openPage(IConstants.STORE_AUTOMATION_BASE_URL);

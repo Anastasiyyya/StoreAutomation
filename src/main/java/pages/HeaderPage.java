@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import page_elements.Button;
 import page_elements.Dropdown;
@@ -28,6 +29,7 @@ public class HeaderPage extends BasePage{
      * @param buttonName
      * @return HeaderPage
      */
+    @Step("Move to button: {buttonName}")
     public HeaderPage moveToMenuButton(String buttonName) {
         new Button().waitForButtonVisible((String.format(BLOCK_TOP_MENU_CSS,buttonName)));
         log.info(String.format("Move to menu button '%s'", buttonName));
@@ -40,6 +42,7 @@ public class HeaderPage extends BasePage{
      * @param buttonName
      * @return
      */
+    @Step("Move and click on the button: {buttonName}")
     public ProductCategoryPage moveAndClickOnSubMenuButton(String buttonName) {
         log.info(String.format("Move to sub menu button '%s')", buttonName));
         actions().moveToElement($(String.format(BLOCK_SUB_MENU_CSS, buttonName))).click().perform();
@@ -51,6 +54,7 @@ public class HeaderPage extends BasePage{
      * @param currency
      * @return HeaderPage
      */
+    @Step("Change currency to {currency}")
     public HeaderPage changeCurrencyTo(String currency) {
         log.info(String.format("Change currency to: %s", currency));
         new Dropdown("Валюта :").selectDropdownOption(DROPDOWN_CURRENCY_XPATH,DROPDOWN_CURRENCY_OPTION_CSS, currency);
@@ -74,6 +78,7 @@ public class HeaderPage extends BasePage{
      * This method clicks on account button
      * @return MyAccountPage
      */
+    @Step("Click on 'Account' button")
     public MyAccountPage clickOnAccountButton(){
         log.info("Click 'Account' button");
         accountButton.click();
