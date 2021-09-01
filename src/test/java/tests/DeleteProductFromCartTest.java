@@ -7,7 +7,7 @@ import utils.PropertyReader;
 public class DeleteProductFromCartTest extends BaseTest {
 
     @Test(description = "checking that product has been deleted from cart")
-    public void addProductToCartTest() {
+    public void deleteProductFromCartTest() {
         authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
                 System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
         headerPage.moveToMenuButton(WOMEN)
