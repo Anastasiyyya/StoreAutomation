@@ -1,10 +1,15 @@
 package pages;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import page_elements.*;
 import page_objects.Address;
+
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
@@ -18,6 +23,7 @@ public class MyAddressesPage extends MyAccountPage {
      * @param address
      * @return MyAddressesPage
      */
+    @Step("Adding a new address")
     public MyAddressesPage addNewAddress(Address address){
         new Button().waitForButtonVisibleByLabel("Add a new address");
         log.info("Click 'Add a new address' button");
@@ -44,6 +50,7 @@ public class MyAddressesPage extends MyAccountPage {
      */
     public MyAddressesPage deleteAllAddressesIfExist() {
         deleteAddressesList.stream().iterator().forEachRemaining(SelenideElement::click);
+        Selenide.Wait().withTimeout(Duration.ofSeconds(10));
         switchTo().alert().accept();
         return this;
     }

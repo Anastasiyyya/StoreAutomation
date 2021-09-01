@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import page_elements.Button;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,6 +16,7 @@ public class AuthorizationPage extends HeaderPage{
      * This method opens page by URL
      * @return
      */
+    @Step("Opening authorization page")
     public AuthorizationPage openPage() {
         super.openPage(STORE_AUTOMATION_AUTHORIZATION_PAGE_URL);
         return this;
@@ -25,6 +27,7 @@ public class AuthorizationPage extends HeaderPage{
      * @param email
      * @return
      */
+    @Step("Fill in {email} in Email field")
     public CreateAccountPage writeEmail(String email) {
         new Button().waitForButtonVisibleByLabel("Create an account");
         log.info(String.format("Fill in email: '%s' in sign in email field.", email));
@@ -40,6 +43,7 @@ public class AuthorizationPage extends HeaderPage{
      * @param password
      * @return
      */
+    @Step("Sign in with email:{email} and password:{password}")
     public MyAccountPage signIn(String email, String password) {
         new Button().waitForButtonVisibleByLabel("Sign in");
         log.info(String.format("Fill in email: '%s' in sign in email field.", email));

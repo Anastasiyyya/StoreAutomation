@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.HeaderPage;
 
 public class AddProductToCartSteps {
@@ -10,6 +11,7 @@ public class AddProductToCartSteps {
         headerPage = new HeaderPage();
     }
 
+    @Step("Adding new product to cart")
     public AddProductToCartSteps addNewProduct(String menuButton, String newCurrency, String subMenuButton, String showDropdown,
                                                String showQuantityOfProducts, String sortByDropdown, String sortBy, String view, String productName) {
         headerPage
@@ -25,6 +27,7 @@ public class AddProductToCartSteps {
         return this;
     }
 
+    @Step("Adding two products to cart")
     public AddProductToCartSteps addTwoProducts(String menuButton, String newCurrency, String subMenuButton, String showDropdown,
                                                 String showQuantityOfProducts, String sortByDropdown, String sortBy, String view, String firstProductName, String secondProductName) {
         headerPage.moveToMenuButton(menuButton)

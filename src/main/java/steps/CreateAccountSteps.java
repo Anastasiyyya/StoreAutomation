@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import page_objects.Account;
 import pages.AuthorizationPage;
 import pages.CreateAccountPage;
@@ -20,6 +21,7 @@ public class CreateAccountSteps {
      * @param account
      * @return CreateAccountSteps
      */
+    @Step("Creating an account")
     public CreateAccountSteps createAccount(String email, Account account) {
         authorizationPage
                 .openPage()

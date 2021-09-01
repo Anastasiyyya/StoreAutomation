@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import page_elements.*;
 import page_objects.Account;
@@ -15,6 +16,7 @@ public class CreateAccountPage extends HeaderPage{
      * @param account
      * @return
      */
+    @Step("Create new account")
     public MyAccountPage createAccount(Account account) {
         new Button().waitForButtonVisibleByLabel("Register");
         new RadioButton().selectRadioButton(MRS_CSS);

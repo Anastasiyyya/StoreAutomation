@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 
@@ -35,6 +36,7 @@ public class MyAccountPage extends HeaderPage {
      * This method clicks on 'My addresses button'
      * @return MyAddressesPage
      */
+    @Step("Click 'My Addresses' button ")
     public MyAddressesPage clickMyAddressesButton() {
         log.info("Click 'My addresses' button");
         myAddressesButton.click();
