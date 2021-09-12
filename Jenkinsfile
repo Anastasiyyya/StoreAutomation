@@ -10,18 +10,24 @@ pipeline {
     }
     parameters {
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+        string name: 'EMAIL', description: '', defaultValue: ''
+        string name: 'PASSWORD', description: '', defaultValue: ''
     }
+
 
    stages {
       stage('Testing') {
          steps {
+
             // Get some code from a GitHub repository
-            git branch: "${params.BRANCH}", url: 'https://github.com/Anastasiyyya/StoreAutomation'
+            git branch: "${params.BRANCH}", url: 'https://github.com/Anastasiyyya/StoreAutomation.git'
 
             // Run Maven on a Unix agent.
             //sh "mvn clean test"
+
             // To run Maven on a Windows agent, use
-            bat "mvn clean test"
+            bat "mvn test -Dtest=SignInTests -Demail=${params.USERNAME} -Dpassword=${params.PASSWORD}"
+
          }
 
          post {
@@ -32,6 +38,7 @@ pipeline {
             }
          }
       }
+
       stage('Reporting') {
          steps {
              script {
@@ -44,6 +51,6 @@ pipeline {
                      ])
              }
          }
-        }
+      }
    }
 }
