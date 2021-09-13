@@ -24,7 +24,7 @@ public class QuickViewProductModalPage extends BasePage {
     public ProductAddedModalPage addProductToCart() {
         log.info("Switch to frame");
         Selenide.Wait().withTimeout(Duration.ofSeconds(10));
-        switchTo().frame(0);
+        switchTo().frame("#fancybox-frame1631559016885");
         log.info("Click 'Add to cart' button");
         $(ADD_TO_CART_BUTTON_CSS).click();
         log.info("Switch to window");
