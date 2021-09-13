@@ -26,7 +26,7 @@ pipeline {
             //sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "mvn test -Dtest=SignInTests -Demail=${params.EMAIL} -Dpassword=${params.PASSWORD}"
+            bat "mvn clean test -Demail=${params.EMAIL} -Dpassword=${params.PASSWORD}"
 
          }
 
