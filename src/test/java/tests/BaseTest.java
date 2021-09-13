@@ -1,6 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -31,6 +33,11 @@ public class BaseTest implements ITestConstants {
      */
     @BeforeMethod
     public void setUp(){
+        Configuration.browser = "chrome";
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("incognito");
+        Configuration.browserCapabilities = new DesiredCapabilities();
+        Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.timeout = 15000;
