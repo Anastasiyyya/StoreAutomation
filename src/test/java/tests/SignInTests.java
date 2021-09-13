@@ -12,6 +12,6 @@ public class SignInTests extends BaseTest {
                 System.getProperty("password", PropertyReader.getProperty("password")));
         Assert.assertEquals(myAccountPage.getMessageText(),"Welcome to your account. " +
                 "Here you can manage all of your personal information and orders.");
-        Assert.assertEquals(myAccountPage.getAccountName(),"Anastasiya S");
+        Assert.assertEquals(myAccountPage.getAccountName(),"Anastasiya S S");
     }
 }
