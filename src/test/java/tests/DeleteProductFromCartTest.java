@@ -8,8 +8,8 @@ public class DeleteProductFromCartTest extends BaseTest {
 
     @Test(description = "checking that product has been deleted from cart")
     public void deleteProductFromCartTest() {
-        authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
-                System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
+        authorizationSteps.signInToAccount(System.getProperty("email", PropertyReader.getProperty("email")),
+                System.getProperty("password", PropertyReader.getProperty("password")));
         headerPage.moveToMenuButton(WOMEN)
                 .changeCurrencyTo(DOLLAR)
                 .moveAndClickOnSubMenuButton(SUMMER_DRESSES)

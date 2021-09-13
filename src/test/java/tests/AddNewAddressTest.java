@@ -11,8 +11,8 @@ public class AddNewAddressTest extends BaseTest {
     @Test(description = "Check that the address has been added")
     public void addNewAddressTest() {
         Address address = new Address(FIRST_NAME, LAST_NAME, COMPANY, ADDRESS, ZIP_CODE, CITY, COUNTRY, HOME_PHONE, MOBILE_PHONE, Utils.generateRandomString(5));
-        authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
-                System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
+        authorizationSteps.signInToAccount(System.getProperty("email", PropertyReader.getProperty("email")),
+                System.getProperty("password", PropertyReader.getProperty("password")));
         addNewAddressSteps
                 .addNewAddress(address);
         Assert.assertFalse(myAddressesPage.IsAddressesListEmpty());
@@ -21,8 +21,8 @@ public class AddNewAddressTest extends BaseTest {
     @Test(description = "Check that the address list is empty")
     public void deleteAllAddressesTest() {
         Address address = new Address(FIRST_NAME, LAST_NAME, COMPANY, ADDRESS, ZIP_CODE, CITY, COUNTRY, HOME_PHONE, MOBILE_PHONE, Utils.generateRandomString(5));
-        authorizationSteps.signInToAccount(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")),
-                System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
+        authorizationSteps.signInToAccount(System.getProperty("email", PropertyReader.getProperty("email")),
+                System.getProperty("password", PropertyReader.getProperty("password")));
         addNewAddressSteps
                 .addNewAddress(address);
         myAddressesPage.deleteAllAddressesIfExist();
