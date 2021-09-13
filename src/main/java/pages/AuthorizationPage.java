@@ -32,7 +32,6 @@ public class AuthorizationPage extends HeaderPage{
         new Button().waitForButtonVisibleByLabel("Create an account");
         log.info(String.format("Fill in email: '%s' in sign in email field.", email));
         $(CREATE_AN_ACCOUNT_EMAIL_INPUT_CSS).sendKeys(email);
-        log.info("Click button 'Create an account'.");
         new Button("Create an account").searchButtonByLabelAndClick();
         return new CreateAccountPage();
     }
