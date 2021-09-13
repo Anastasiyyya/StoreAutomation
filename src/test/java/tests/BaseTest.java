@@ -38,7 +38,6 @@ public class BaseTest implements ITestConstants {
         options.addArguments("incognito");
         Configuration.browserCapabilities = new DesiredCapabilities();
         Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.timeout = 15000;
         Configuration.holdBrowserOpen = true;
